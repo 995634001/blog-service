@@ -1,9 +1,12 @@
 package routers
 
 import (
+	"blog-service/internal/routers/api/v1"
 	"github.com/gin-gonic/gin"
-	"internal/routers/api/v1/tag.go"
 )
+
+var tag = v1.NewTag()
+var article = v1.NewArticle()
 
 func NewRouters() *gin.Engine {
 	r := gin.New()
@@ -24,4 +27,5 @@ func NewRouters() *gin.Engine {
 	apiV1.GET("/articles/:id", article.Get)
 	apiV1.GET("/articles", article.List)
 
+	return r
 }
